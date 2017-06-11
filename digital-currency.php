@@ -30,26 +30,33 @@ function wpdc_currencies_shortcode(){
       #wpdc-headers .col{
         font-weight:bold;
       }
+      #wpdc-rows{
+        border-top:1px solid silver;
+      }
     </style>
     <div class="row" id="wpdc-headers">
-      <div class="col">#</div>
-      <div class="col">Name</div>
-      <div class="col">Market Cap</div>
-      <div class="col">Price</div>
-      <div class="col">Circulating  Supply</div>
-      <div class="col">Volume (24h)</div>
-      <div class="col">% Change (24h)</div>
-      <!--<div class="col">Price Graph (7d)</div>-->
+      <p>
+        <div class="col">#</div>
+        <div class="col">Name</div>
+        <div class="col">Market Cap</div>
+        <div class="col">Price</div>
+        <div class="col">Circulating  Supply</div>
+        <div class="col">Volume (24h)</div>
+        <div class="col">% Change (24h)</div>
+        <!--<div class="col">Price Graph (7d)</div>-->
+      </p>
     </div>';
   foreach($data as $key){
-    $html.='<div class="row">
-      <div class="col">'.$key[rank].'</div>
-      <div class="col">'.$key[name].'</div>
-      <div class="col usd">'.$key[market_cap_usd].'</div>
-      <div class="col usd">'.$key[price_usd].'</div>
-      <div class="col">'.$key[available_supply].'</div>
-      <div class="col usd">'.$key['24h_volume_usd'].'</div>
-      <div class="col">'.$key['percent_change_24h'].'</div>
+    $html.='<div class="row" id="wpdc-rows">
+      <p>
+        <div class="col">'.$key[rank].'</div>
+        <div class="col">'.$key[name].'</div>
+        <div class="col usd">'.$key[market_cap_usd].'</div>
+        <div class="col usd">'.$key[price_usd].'</div>
+        <div class="col">'.$key[available_supply].'</div>
+        <div class="col usd">'.$key['24h_volume_usd'].'</div>
+        <div class="col">'.$key['percent_change_24h'].'</div>
+      </p>
     </div>';
   }
   //$html='<pre>'.print_r($data,true).'</pre>';
